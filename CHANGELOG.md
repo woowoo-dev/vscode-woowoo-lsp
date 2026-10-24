@@ -27,5 +27,9 @@ All notable changes to the WooWoo VS Code extension are documented here.
   colours and no per-token-type configuration is needed. The only difference is `\begin`/`\end`,
   which use the command scope (`support.function`) instead of `keyword.control`, because the
   `keyword` type is already used for `.include` lines. Requires `wuff` 1.3.0 or newer and
-  language server v1.2.0, whose FIT-Math dialect (1.1.0) marks `equation`/`align`/`gather`
-  with `math: true`.
+  language server v1.2.0, whose FIT-Math dialect marks `equation`/`align`/`gather` with
+  `math: true`.
+- Richer hover hints, delivered by the updated language server: the hint is Markdown and
+  lists the meta-block fields of the hovered part, wobject or environment with a short help
+  text for the non-obvious ones, and tells you when the fragile form (`!tikz:`) is needed.
+  Requires `wuff` 1.3.0 or newer and language server v1.2.0.
