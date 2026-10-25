@@ -40,3 +40,9 @@ All notable changes to the WooWoo VS Code extension are documented here.
   3.9 as end of life. `checkVersion` rejects such interpreters instead of letting the server
   fail on `import wuff`, the missing-interpreter message and the README say 3.10, and
   `runtime.txt` names `python-3.10.22`.
+- Development dependencies are refreshed within their declared ranges (TypeScript 5.9.3,
+  webpack 5.112.2, ESLint 8.57.1) and `@vscode/vsce` is 4.0.0; packaging the extension now
+  needs Node 22 or newer. The extension itself is unaffected: `npm audit --omit=dev`
+  reports no vulnerabilities. The two advisories that remain concern `@azure/msal-node`,
+  which vsce pulls in for publishing credentials, and cannot be fixed until
+  `@azure/identity` moves to `@azure/msal-node` 7.

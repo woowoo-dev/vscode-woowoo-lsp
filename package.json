@@ -50,7 +50,7 @@
         "watch-tests": "tsc -p . -w --outDir out",
         "pretest": "npm run compile-tests && npm run compile && npm run lint",
         "lint": "eslint src --ext ts",
-        "format-check": "prettier --check 'src/**/*.ts' 'build/**/*.yml' '.github/**/*.yml'",
+        "format-check": "prettier --check 'src/**/*.ts' '.github/**/*.yml'",
         "test": "node ./out/test/runTest.js",
         "vsce-package": "vsce package -o woowoo-vscode.vsix"
     },
@@ -82,7 +82,7 @@
                         "entity.name.type.class"
                     ],
                     "type": [
-                        "entity.name.type.class"
+                        "entity.name.type"
                     ],
                     "typeParameter": [
                         "entity.name.type.class"
@@ -107,9 +107,6 @@
                     ],
                     "function": [
                         "support.function"
-                    ],
-                    "type": [
-                        "entity.name.type"
                     ],
                     "operator": [
                         "keyword.operator"
@@ -175,18 +172,18 @@
     },
     "devDependencies": {
         "@types/fs-extra": "^11.0.1",
-        "@types/vscode": "1.78.0",
         "@types/glob": "^8.1.0",
         "@types/node": "16.x",
+        "@types/vscode": "1.78.0",
         "@typescript-eslint/eslint-plugin": "^6.2.0",
         "@typescript-eslint/parser": "^6.2.0",
         "@vscode/test-electron": "^2.3.3",
-        "@vscode/vsce": "^2.19.0",
+        "@vscode/vsce": "^4.0.0",
         "eslint": "^8.45.0",
         "glob": "^10.3.3",
         "prettier": "^3.0.0",
-        "typescript": "^5.1.6",
         "ts-loader": "^9.4.4",
+        "typescript": "^5.1.6",
         "webpack": "^5.88.2",
         "webpack-cli": "^5.1.4"
     }
