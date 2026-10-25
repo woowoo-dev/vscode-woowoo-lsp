@@ -33,3 +33,10 @@ All notable changes to the WooWoo VS Code extension are documented here.
   lists the meta-block fields of the hovered part, wobject or environment with a short help
   text for the non-obvious ones, and tells you when the fragile form (`!tikz:`) is needed.
   Requires `wuff` 1.3.0 or newer and language server v1.2.0.
+
+### Changed
+
+- The extension requires Python 3.10 or newer, matching `wuff` 1.3.0, which dropped 3.8 and
+  3.9 as end of life. `checkVersion` rejects such interpreters instead of letting the server
+  fail on `import wuff`, the missing-interpreter message and the README say 3.10, and
+  `runtime.txt` names `python-3.10.22`.
