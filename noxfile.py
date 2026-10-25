@@ -10,6 +10,12 @@ from typing import List
 
 import nox  # pylint: disable=import-error
 
+# Pinned so that `nox -s lint` keeps checking the code the same way over time; these are the
+# versions the sources are formatted and checked with. They require Python 3.10 or newer.
+PYLINT = "pylint==4.1.3"
+BLACK = "black==26.10.1"
+ISORT = "isort==9.0.2"
+
 
 def _install_bundle(session: nox.Session) -> None:
     session.install(
@@ -121,7 +127,7 @@ def lint(session: nox.Session) -> None:
     session.install("-r", "./requirements.txt")
     session.install("-r", "src/test/python_tests/requirements.txt")
 
-    session.install("pylint")
+    session.install(PYLINT)
     session.run("pylint", "-d", "W0511", "./bundled/tool")
     session.run(
         "pylint",
@@ -133,13 +139,13 @@ def lint(session: nox.Session) -> None:
     session.run("pylint", "-d", "W0511", "noxfile.py")
 
     # check formatting using black
-    session.install("black")
+    session.install(BLACK)
     session.run("black", "--check", "./bundled/tool")
     session.run("black", "--check", "./src/test/python_tests")
     session.run("black", "--check", "noxfile.py")
 
     # check import sorting using isort
-    session.install("isort")
+    session.install(ISORT)
     session.run("isort", "--check", "./bundled/tool")
     session.run("isort", "--check", "./src/test/python_tests")
     session.run("isort", "--check", "noxfile.py")
