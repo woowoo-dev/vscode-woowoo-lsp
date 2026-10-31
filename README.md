@@ -51,7 +51,7 @@ The dialect file path you set is passed to the language server by the VSCode lan
 
 ## Language Server Features
 
-Please visit [the official WooWoo Language Server repository](https://gitlab.fit.cvut.cz/woowoo/lsp/woowoo-language-server) to see the full list of features.
+Please visit [the official WooWoo Language Server repository](https://github.com/woowoo-dev/woowoo-language-server) to see the full list of features.
 
 
 ## Theme Choice and Semantic Highlighting

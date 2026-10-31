@@ -4,7 +4,7 @@
     "description": "The WooWoo language server.",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Magmi183/vscode-woowoo-lsp"
+        "url": "https://github.com/woowoo-dev/vscode-woowoo-lsp"
     },
     "icon": "images/woowoo_logo_white_on_black.png",
     "version": "1.3.0",
