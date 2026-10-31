@@ -23,6 +23,9 @@ updates:
     commit-message:
       include: 'scope'
       prefix: 'pip'
+    ignore:
+      - dependency-name: 'pygls'
+        update-types: ['version-update:semver-major']
 
   - package-ecosystem: 'npm'
     directory: /
