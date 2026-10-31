@@ -7,7 +7,7 @@ This extension brings the **WooWoo Language Server** to VSCode. In addition to t
 
 ## Prerequisites
 
-- Python 3.8 or higher
+- Python 3.10 or higher
 
 
 ## Installation Guide
@@ -15,7 +15,7 @@ This extension brings the **WooWoo Language Server** to VSCode. In addition to t
 Please follow these steps to set up the extension:
 
 1. **Check System Compatibility**: 
-    - The extension is compatible with most systems running Python 3.8 or higher.
+    - The extension is compatible with most systems running Python 3.10 or higher.
     - On non-standard systems, a C++ compiler is required to compile the `wuff` package.
 
 2. **Install `wuff`**:
@@ -51,7 +51,7 @@ The dialect file path you set is passed to the language server by the VSCode lan
 
 ## Language Server Features
 
-Please visit [the official WooWoo Language Server repository](https://gitlab.fit.cvut.cz/woowoo/lsp/woowoo-language-server) to see the full list of features.
+Please visit [the official WooWoo Language Server repository](https://github.com/woowoo-dev/woowoo-language-server) to see the full list of features.
 
 
 ## Theme Choice and Semantic Highlighting
