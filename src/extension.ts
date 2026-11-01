@@ -50,7 +50,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     traceLog(`Module: ${serverInfo.module}`);
     traceVerbose(`Full Server Info: ${JSON.stringify(serverInfo)}`);
 
-    const runServer = async () => {
+    const startServer = async () => {
         const interpreter = getInterpreterFromSetting(serverId);
         if (interpreter && interpreter.length > 0) {
             if (checkVersion(await resolveInterpreter(interpreter))) {
@@ -73,6 +73,14 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
                 `[Option 2] Set an interpreter using "${serverId}.interpreter" setting.\r\n` +
                 'Please use Python 3.10 or greater.',
         );
+    };
+
+    // The Python extension can report the interpreter twice at once on startup. The starts
+    // run one after another, so that each one stops the server the previous one started.
+    let serverStart: Promise<void> = Promise.resolve();
+    const runServer = (): Promise<void> => {
+        serverStart = serverStart.then(startServer, startServer);
+        return serverStart;
     };
 
     context.subscriptions.push(

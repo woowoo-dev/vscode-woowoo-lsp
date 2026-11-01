@@ -2,7 +2,7 @@
 
 All notable changes to the WooWoo VS Code extension are documented here.
 
-## [1.4.0] - 2026-11-01
+## [1.4.0] - 2026-11-02
 
 ### Added
 
@@ -29,6 +29,9 @@ All notable changes to the WooWoo VS Code extension are documented here.
   references, rename and `.include` completion.
 - Ctrl+click on an `.include` of a file that does not exist no longer shows
   *Error in server*.
+- Completion showed every item twice. On startup the Python extension can report the
+  interpreter twice at once, and the extension started a language server for each report.
+  It now starts one.
 
 ## [1.3.1] - 2026-11-01
 
