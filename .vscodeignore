@@ -24,3 +24,6 @@ noxfile.py
 **/requirements.txt
 **/requirements.in
 **/tool/_debug_server.py
+bundled/tool/woowoo_pygls/.github/**
+bundled/tool/woowoo_pygls/tests/**
+**/AGENTS.md

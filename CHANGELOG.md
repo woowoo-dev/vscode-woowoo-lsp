@@ -2,7 +2,24 @@
 
 All notable changes to the WooWoo VS Code extension are documented here.
 
-## [1.3.0] - 2026-10-24
+## [1.3.1] - 2026-11-01
+
+### Fixed
+
+- The language server no longer crashes on start with Python 3.15. The bundled
+  `typing-extensions` 4.9.0 uses `typing.no_type_check_decorator`, which Python 3.15
+  removed; the extension now bundles `typing-extensions` 4.16.0 and `exceptiongroup` 1.3.1.
+- Changing the `woowoo-vscode.dialect_file_path` setting restarts the language server, so
+  the new dialect applies without restarting VS Code.
+- README: the screenshot points to this repository, and the setup steps link the
+  Marketplace and Open VSX pages and mention the `woowoo-vscode.interpreter` setting.
+
+### Removed
+
+- The Python tests and the `test` npm script inherited from Microsoft's extension template.
+  They tested a sample Python linter, not this extension.
+
+## [1.3.0] - 2026-10-31
 
 ### Added
 

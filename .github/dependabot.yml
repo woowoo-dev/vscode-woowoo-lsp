@@ -8,16 +8,9 @@ updates:
       - 'no-changelog'
 
   - package-ecosystem: 'pip'
-    directory: /src/test/python_tests
-    schedule:
-      interval: daily
-    labels:
-      - 'no-changelog'
-
-  - package-ecosystem: 'pip'
     directory: /
     schedule:
-      interval: daily
+      interval: monthly
     labels:
       - 'debt'
     commit-message:
@@ -34,6 +27,9 @@ updates:
     labels:
       - 'no-changelog'
     ignore:
+      # ESLint 9+ drops .eslintrc.json; moving to eslint.config.js is a separate change
+      - dependency-name: 'eslint'
+        update-types: ['version-update:semver-major']
       - dependency-name: '@types/vscode'
       - dependency-name: '@types/node'
       - dependency-name: 'vscode-languageclient'
