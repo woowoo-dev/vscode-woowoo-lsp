@@ -2,6 +2,37 @@
 
 All notable changes to the WooWoo VS Code extension are documented here.
 
+## [1.4.0] - 2026-11-02
+
+### Added
+
+- Bibliography support (language server 1.3.0, needs `wuff` 1.4.0). If the project's
+  `Woofile` names a BibTeX file (`builder.bibtex`), `.cite:` suggests its keys with the
+  authors, year and title, Ctrl+click on a key opens the entry in the `.bib` file, hover
+  shows the entry, and an unknown key gets a warning.
+- Completion inside a reference that is already partly typed (Ctrl+Space on
+  `.reference:sec-`), and find references and rename from any reference, not only from
+  the label.
+- With a `wuff` older than 1.4.0 the extension shows *wuff X is too old … Run:
+  pip install -U wuff* instead of failing.
+
+### Changed
+
+- `.eqref:` and the `#` shorthand also offer and open the labels of `align` and `gather`.
+
+### Fixed
+
+- Completion after Czech (non-ASCII) text on the same line, and go to definition that
+  pointed a character or two next to the label.
+- Files with capital letters in their name (`chap-09-OLS.woo`) on macOS and Windows: the
+  server kept a second, outdated copy of such a file, which could show up in find
+  references, rename and `.include` completion.
+- Ctrl+click on an `.include` of a file that does not exist no longer shows
+  *Error in server*.
+- Completion showed every item twice. On startup the Python extension can report the
+  interpreter twice at once, and the extension started a language server for each report.
+  It now starts one.
+
 ## [1.3.1] - 2026-11-01
 
 ### Fixed

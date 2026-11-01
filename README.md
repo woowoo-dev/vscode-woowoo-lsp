@@ -22,6 +22,7 @@ Please follow these steps to set up the extension:
     - Install the `wuff` package into the Python interpreter that the extension will use to launch the language server. This could be a Python virtual environment, the system-wide Python installation, or any other Python interpreter on your system.
     - Use `pip install wuff` to install. `wuff` is a set of analyzer tools for WooWoo projects, developed in C++ for efficiency.
     - The package is available on [PyPI](https://pypi.org/project/wuff/#files).
+    - The extension needs `wuff` 1.4.0 or newer. To update an older one, run `pip install -U wuff` with the same interpreter; the extension tells you when it is needed.
 
 3. **Install Extension**:
     - Install the WooWoo extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=michal-janecek.woowoo-vscode) or [Open VSX](https://open-vsx.org/extension/michal-janecek/woowoo-vscode).
@@ -48,6 +49,20 @@ Language support in WooWoo is highly dependent on the specific dialect used. To 
 4. **Done**: The language server restarts with the new dialect.
 
 The dialect file path you set is passed to the language server when it starts.
+
+
+### Bibliography
+
+If the project's `Woofile` names a BibTeX file, the extension knows its entries:
+
+```yaml
+builder:
+  bibtex: references.bib
+```
+
+After `.cite:` it suggests the keys (with the authors, year and title), Ctrl+click on a key opens it in the `.bib` file, hovering shows the entry, and a key that is not in the file is underlined as a warning. Edits of the `Woofile` or the `.bib` file are picked up without a restart.
+
+This works with the default `FIT-Math` dialect. A custom dialect gets it by giving its citing construct `references: [{target: bibliography}]`.
 
 
 ## Language Server Features
