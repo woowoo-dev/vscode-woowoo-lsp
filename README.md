@@ -3,7 +3,7 @@
 This extension brings the **WooWoo Language Server** to VSCode. In addition to that, it provides basic client-side syntax highlighting.
 
 
-![alt text](https://raw.githubusercontent.com/Magmi183/vscode-woowoo-lsp/main/images/find-all-references.png)
+![Find All References](images/find-all-references.png)
 
 ## Prerequisites
 
@@ -24,13 +24,14 @@ Please follow these steps to set up the extension:
     - The package is available on [PyPI](https://pypi.org/project/wuff/#files).
 
 3. **Install Extension**:
-    - Install the WooWoo extension from the VSCode Marketplace.
+    - Install the WooWoo extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=michal-janecek.woowoo-vscode) or [Open VSX](https://open-vsx.org/extension/michal-janecek/woowoo-vscode).
 
 4. **Open Command Menu**:
     - Press `Ctrl + Shift + P` (Windows/Linux) or `Cmd + Shift + P` (Mac) and search for the `Python: Select Interpreter` command.
 
 5. **Select Interpreter**:
     - Choose the Python interpreter where you installed `wuff` in step 2.
+    - Alternatively, set the `woowoo-vscode.interpreter` setting to the path of that interpreter.
 
 6. **Finalize Setup**:
     - Your setup is complete! If needed, specify the dialect you are using (refer to the _Dialect Configuration_ section for details).
@@ -44,9 +45,9 @@ Language support in WooWoo is highly dependent on the specific dialect used. To 
 1. **Access Settings**: Open VSCode settings with `Ctrl + ,` (Windows/Linux) or `Cmd + ,` (Mac).
 2. **Search for WooWoo**: Type `WooWoo` in the settings search bar.
 3. **Set Dialect File Path**: Find the `WooWoo-vscode: Dialect_file_path` setting and input the absolute path to your `.yaml` dialect file.
-4. **Restart VSCode**: To apply the changes, restart VSCode.
+4. **Done**: The language server restarts with the new dialect.
 
-The dialect file path you set is passed to the language server by the VSCode language server client upon startup.
+The dialect file path you set is passed to the language server when it starts.
 
 
 ## Language Server Features
@@ -58,3 +59,20 @@ Please visit [the official WooWoo Language Server repository](https://github.com
 
 The choice of theme in VSCode plays a pivotal role in the semantic highlighting experience provided by the WooWoo LS. Some themes might use the same color for various token types, which could lead to suboptimal highlighting when working with WooWoo documents.
 
+
+## Development
+
+```bash
+git clone --recurse-submodules https://github.com/woowoo-dev/vscode-woowoo-lsp.git
+cd vscode-woowoo-lsp
+python -m pip install nox
+nox -s build_package   # bundles the Python libraries and builds woowoo-vscode.vsix
+```
+
+The language server is the `bundled/tool/woowoo_pygls` submodule
+([woowoo-language-server](https://github.com/woowoo-dev/woowoo-language-server)).
+
+To release, bump `version` in `package.json`, add a section to `CHANGELOG.md` and create a
+GitHub release with the tag `vX.Y.Z`. The *Publish* workflow attaches the VSIX to the release
+and, after an approval in the `marketplace` environment, publishes it to the VS Code
+Marketplace and Open VSX.

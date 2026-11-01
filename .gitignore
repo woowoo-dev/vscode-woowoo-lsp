@@ -14,3 +14,4 @@ bundled/libs/
 **/.DS_Store
 .vscode/
 **/tmp/
+.idea/
